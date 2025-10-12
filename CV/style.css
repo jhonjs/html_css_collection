@@ -44,6 +44,11 @@ main {
         .contact-content {
             display: grid;
             gap: 1rem;
+
+            & a {
+                color: white;
+                text-decoration: none;
+            }
         }
 
         & .contact-content > div {
