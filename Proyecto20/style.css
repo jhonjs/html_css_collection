@@ -1,0 +1,117 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --gr-1: linear-gradient(135deg, #70f570 10%, #49c628 100%);
+  --gr-2:  linear-gradient(135deg, #3c8ce7 10%, #00eaff 100%);
+  --gr-3: linear-gradient(135deg, #ff96f9 10%, #c32bac 100%);
+  --gr-4: linear-gradient(135deg, #fd6e6a 10%, #ffc600 100%);
+}
+
+details {
+  position: relative;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 0 24px -6px rgba(82, 81, 81, 0.6);
+
+  & summary {
+    padding: 1rem;
+    cursor: pointer;
+
+    &::marker {
+      content: '';
+    }
+
+    & h2 {
+      display: grid;
+      align-items: center;
+      grid-template-columns: auto 1fr auto;
+      gap: 1rem;
+      font-size: 1.2rem;
+      font-weight: 300;
+
+      & .counter {
+        display: grid;
+        place-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+      }
+      & .counter.n-1 {
+        background: var(--gr-1);
+      }
+      & .counter.n-2 {
+        background: var(--gr-2);
+      }
+      & .counter.n-3 {
+        background: var(--gr-3);
+      }
+      & .counter.n-4 {
+        background: var(--gr-4);
+      }
+
+      & .close {
+        font-size: 2rem;
+        transition: transform 1s ease;
+        color: rgb(85, 85, 85);
+        font-weight: 400;
+
+        &:hover {
+          filter: brightness(.9);
+        }
+      }
+    }
+  }
+  
+  &[open].card-1 {
+    background: var(--gr-1);
+  }
+  &[open].card-2 {
+    background: var(--gr-2);
+  }
+  &[open].card-3 {
+    background: var(--gr-3);
+  }
+  &[open].card-4 {
+    background: var(--gr-4);
+  }
+  &[open] {
+    & .counter {
+      background: transparent !important;
+      position: absolute;
+      right: 80px;
+      top: 80px;
+      font-weight: bold;
+      font-size: 8rem;
+      z-index: 1;
+      color:rgba(255, 255, 255, 0.267);
+    }
+    & summary h2 {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr auto;
+      color: white;
+
+      & .title {
+        width: fit-content;
+        padding: 2px 8px;
+        background-color: white;
+        color: black;
+      }
+
+      & .close {
+        color: white;
+        transition: transform 1s ease;
+        transform: rotate(135deg);
+      }
+    }
+    & section {
+      padding: 0 1rem 2rem 1rem;
+      color: white;
+    }
+  }
+}

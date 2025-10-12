@@ -1,0 +1,130 @@
+:root {
+    --color-1: rgb(41, 147, 204);
+    --color-2: rgb(37, 71, 134);
+    --white: rgb(252, 252, 252);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto sans-serif', sans-serif;
+}
+
+body {
+    padding: .5rem;
+    overflow: auto;
+    color: var(--color-2);
+    background: var(--white);
+}
+
+main {
+    display: grid;
+    grid: 1fr / 4fr 8fr;
+    
+    & .profile {
+        display:grid;
+        align-content: start;
+        gap: 2rem;
+        background:var(--color-1);
+        color: var(--white);
+        padding: 2rem 3rem;
+        margin: 1rem 1.5rem;
+
+        & .image {
+            justify-self: center;
+        }
+
+        & .resume, .skills {
+            display: grid;
+            gap: 12px;
+            line-height: 24px;
+        }
+
+        & .contact,
+        .contact-content {
+            display: grid;
+            gap: 1rem;
+        }
+
+        & .contact-content > div {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+
+            & i {
+                font-size: 1.5rem;
+                color: var(--white);
+            }
+        }
+    } 
+
+    & .support {
+        display: grid;
+        gap: 1.5rem;
+        align-content: start;
+        position: relative;
+        & .title {
+            color: var(--white);
+        }
+    }
+}
+
+h2 {
+    text-transform: capitalize;
+}
+
+.experience, .education {
+    display:grid;
+    gap: 16px;
+
+    & .details__item {
+        display: grid;
+        gap: 8px;
+
+        & .details__item-data {
+            display: grid;
+            gap: 12px;
+            & ul {
+                display: grid;
+                gap: 12px;
+                padding: 0;
+                & li {
+                    margin-left: 2rem;
+                }
+            } 
+        }
+
+    }
+}
+
+.image {
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 100%;
+    outline: 5px solid var(--white);
+
+    & img {
+        width: 100%;
+        transform: scale(1.1);
+    }
+}
+
+.tools {
+    position: absolute;
+    top:0;
+    right: 0;
+    padding: 1rem;
+
+    & select,
+    & button {
+        cursor: pointer;
+        padding: 8px 16px;
+    }
+}
+
+@media print {
+    .tools {
+        display: none;
+    }
+}

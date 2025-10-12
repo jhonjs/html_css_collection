@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Piece</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main></main>
+  <script>
+    const container = document.querySelector('main')
+    const list = [
+      { imgNumber: 1, name: 'doflamingo', title: 'Post Title', description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi natus distinctio impedit dolore eaque laboriosam nihil possimus sint labore iure ullam laudantium, cum porro nulla quaerat expedita fugit aliquam tempore.' },
+      { imgNumber: 2, name: 'happy luffy', title: 'Post Title', description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi natus distinctio impedit dolore eaque laboriosam nihil possimus sint labore iure ullam laudantium, cum porro nulla quaerat expedita fugit aliquam tempore.' },
+      { imgNumber: 3, name: 'serious luffy', title: 'Post Title', description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi natus distinctio impedit dolore eaque laboriosam nihil possimus sint labore iure ullam laudantium, cum porro nulla quaerat expedita fugit aliquam tempore.' },
+      { imgNumber: 4, name: 'angry luffy', title: 'Post Title', description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi natus distinctio impedit dolore eaque laboriosam nihil possimus sint labore iure ullam laudantium, cum porro nulla quaerat expedita fugit aliquam tempore.' },
+      { imgNumber: 5, name: 'Uta', title: 'Post Title', description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi natus distinctio impedit dolore eaque laboriosam nihil possimus sint labore iure ullam laudantium, cum porro nulla quaerat expedita fugit aliquam tempore.' },
+      { imgNumber: 6, name: 'luffy gameplay', title: 'Post Title', description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi natus distinctio impedit dolore eaque laboriosam nihil possimus sint labore iure ullam laudantium, cum porro nulla quaerat expedita fugit aliquam tempore.' }
+    ]
+
+    container.innerHTML = list.map(item => /* html */`
+      <article class="card">
+        <div class="box">
+          <div class="imgBx">
+            <img src="img/l${item.imgNumber}.jpg" alt="${item.name}">
+          </div>
+          <div class="contentBx">
+            <div>
+              <h2>${item.title}</h2>
+              <p>${item.description}</p>
+            </div>
+          </div>
+        </div>
+      </article>  
+    `).join('\n')
+  </script>
+</body>
+</html>

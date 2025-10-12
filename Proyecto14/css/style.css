@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+:root {
+  --purple: linear-gradient(to bottom, #d509a0, #ff606e);
+}
+
+body {
+  height: 100dvh;
+  background-image: var(--purple);
+  background-size: cover;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+body::before {
+  content: 'ZOOMX';
+  position: absolute;
+  z-index: -1;
+  font-size: 12rem;
+  font-weight: 900;
+  opacity: .1;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main {
+  display: grid;
+  height: 90%;
+  width: 90%;
+  margin: auto;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+}
+
+.logo {
+  width: 100px;
+  height: 40px;
+}
+
+.burger-icon {
+  width: 40px;
+  height: 30px;
+}
+
+.content {
+  font-size: 1rem;
+  color: white;
+  display: grid;
+  grid-template-areas: 
+    'header header'
+    'brand social';
+  gap: 12px;
+
+  & .shoe {
+    grid-area: header;
+    justify-self: center;
+    max-width: 500px;
+  }
+
+  & .content-brands {
+    grid-area: brand;
+    display: grid;
+    gap: 4px;
+    justify-items: start;
+
+    & h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    & .btn {
+      border: none;
+      padding: 8px 1rem;
+      cursor: pointer;
+
+      &:active {
+        filter: brightness(.8);
+      }
+    }
+    
+  }
+  
+  & .content-social {
+    grid-area: social;
+    display: grid;
+    align-content: end;
+    gap: 12px;
+  }
+
+}
+
+.shoe {
+  animation: jumper 2s infinite alternate;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    display: grid;
+    grid-template-areas: 
+      'header header'
+      'brand brand'
+      'social social';
+    gap: 12px;
+
+    & .shoe {
+      grid-area: header;
+    }
+    & .content-brands {
+      grid-area: brand;
+    }
+    & .content-social {
+      display: flex;
+      grid-area: social;
+      margin-top: 30px;
+    }
+  }
+}
+
+@keyframes jumper {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50px);
+  }
+}

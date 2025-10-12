@@ -1,0 +1,158 @@
+@import "https://fonts.googleapis.com/css2?family=Ubuntu:wght@200;300;400;500;600;700;800;900&display=swap";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+:root {
+  --bg: #3f3752;
+  --bg-2: #51446e;
+  --design: #4eb7ff;
+  --development: #fd6494;
+  --seo: #43f390;
+  --digital: #ffb508;
+  --video: #37ba82;
+  --games: #cd57ff;
+}
+
+body {
+  display: grid;
+  height: 100dvh;
+  overflow: hidden;
+  place-items: center;
+  place-content: center;
+  background-color: var(--bg);
+}
+
+main {
+  display: grid;
+  max-width: 1200px;
+  padding:4rem;
+  height: 100%;
+  grid:1fr / repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  overflow: auto;
+}
+
+.card {
+  width: 100%;
+  height: 300px;
+  padding: 16px;
+  overflow: hidden;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+
+  & header{
+    display: grid;
+    height: 100%;
+    place-content: center;
+    gap: 1rem;
+    border-radius: 8px;
+    transition: transform .3s ease-out;
+  
+    & i {
+      display: block;
+      place-self: center;
+      padding: 1rem;
+      font-size: 4rem;
+    }
+
+    & h2 {
+    margin-top: 12px;
+      font-size: 2rem;
+      display: none;;
+    }
+  }
+
+  & section {
+    opacity: 0;
+    padding: 1rem 2rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--bg-2);
+  }
+  
+  &:hover header {
+    transform: scale(70%) translateY(-20%);
+    transition: transform .3s ease-in;
+    background-color: transparent;
+
+    & i {
+      transition: .3s ease-out;
+      border-radius: 50%;
+    }
+    & h2 {
+      display: block;
+    }
+  }
+  &:hover section {
+    opacity: 1;
+    transform: translateY(-100%);
+    transition: transform 1s ease;
+  }
+}
+
+.design {
+  & header {
+    background-color: var(--design);
+  }
+  &:hover header i {
+    background-color: var(--design);
+  }
+}
+.code {
+  & header {
+    background-color: var(--development);
+  }
+  &:hover header i {
+    background-color: var(--development);
+  }
+}
+.search {
+  & header {
+    background-color: var(--seo);
+  }
+  &:hover header i {
+    background-color: var(--seo);
+  }
+}
+.statistics {
+  & header {
+    background-color: var(--digital);
+  
+  }
+  &:hover header i {
+    background-color: var(--digital);
+  }
+}
+.videocam {
+  & header {
+    background-color: var(--video);
+  
+  }
+  &:hover header i {
+    background-color: var(--video);
+  }
+}
+.games {
+  & header {
+    background-color: var(--games);
+  
+  }
+  &:hover header i {
+    background-color: var(--games);
+  }
+} 
+/* */
+
+@media screen and (max-width: 768px) {
+  main {
+    display: grid;
+    grid: 1fr / 1fr;
+  }
+}

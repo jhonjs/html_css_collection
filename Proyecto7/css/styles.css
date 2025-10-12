@@ -1,0 +1,76 @@
+:root {
+    --color-home: #ff00ff;
+    --color-messages: rgb(74, 168, 255);
+    --color-favorites: #f56f16;
+    --color-video: #bdfc2a;
+    --color-photos: #ffa9ff;
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100dvh;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+main {
+    display: grid;
+    place-content: center;
+    grid-auto-flow: column;
+    height: 100%;
+    gap:1rem;
+}
+
+.btn {
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    border-radius: 50px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    box-shadow: 2px 4px 8px #ccc;
+    transition: all .5s ease-in-out;
+}
+.btn span {
+    font-size: 0;
+    color: white;
+}
+.btn:hover i {
+    display: none;
+}
+.btn:hover span {
+    transition: all .4s ease-in;
+    font-size: 1rem;
+}
+.btn:hover {
+    transition: all .5s ease-in;
+    width: 168px;
+}
+.btn:hover.home {
+    background: linear-gradient(32deg, var(--color-home) 2%, var(--color-photos) 100%);
+}
+
+.btn:hover.messages {
+    background: linear-gradient(45deg, var(--color-messages) 10%, rgb(67, 243, 234) 100%);
+}
+
+.btn:hover.favorites {
+    background: linear-gradient(32deg, var(--color-favorites) 2%, rgb(255, 211, 90) 100%);
+}
+
+.btn:hover.video {
+    background: linear-gradient(32deg, var(--color-video) 2%, rgb(192, 238, 148) 100%);
+}
+
+.btn:hover.photos {
+    background: linear-gradient(32deg, var(--color-photos) 2%, var(--color-photos) 100%);
+}

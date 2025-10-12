@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 11</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="ball orange"></div>
+    <div class="ball blue"></div>
+    <main>
+        <section>
+            <h1 class="title">Popular personajes</h1>
+            <div class="list">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const container = document.querySelector('.list')
+        const characters = [
+            { image: 'img/moe.jpg', name: 'Moe', description: 'Cantinero' },
+            { image: 'img/marge.jpg', name: 'Marge', description: 'Esposa de Homero' },
+            { image: 'img/homero.jpg', name: 'Homero', description: 'Esposo de Marge' },
+            { image: 'img/lisa.jpg', name: 'Lisa', description: 'Hija' },
+            { image: 'img/bart.jpg', name: 'Bart', description: 'Hijo' }
+        ]
+        const listHTML = characters.map((item, index) => `
+            <div class="item">
+                <div class="img">
+                    <img src="${item.image}" alt="${item.description}">
+                </div>
+                <div>
+                    <h2>${item.name}</h2>
+                    <p>${item.description}</p>
+                </div>
+                <div class="item-count">
+                    <span>#</span>
+                    <span>${index + 1 }</span>
+                </div>
+            </div>
+        `).join('\n')
+        container.insertAdjacentHTML('afterbegin', listHTML)
+
+    </script>
+</body>
+</html>

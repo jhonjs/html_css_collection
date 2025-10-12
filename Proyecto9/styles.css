@@ -1,0 +1,187 @@
+:root {
+    --primary: #263658;
+    --secondary: #00ffff;
+    --tertiary: #383838;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    color: beige;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    background-color: var(--primary);
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 440px;
+    background-color: var(--tertiary);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 4px 6px 14px rgb(48, 48, 48);
+}
+
+.card::before {
+    content: 'MIKE';
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, 0%) rotate(-15deg);
+    color:rgba(192, 192, 192, 0.1);
+    font-weight: bold;
+    font-size: 6rem;
+    z-index:0;
+}
+
+.card__img {
+    height: 180px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    background-color: var(--secondary);
+    text-align: right;
+    padding-top:12px;
+    transform: translateX(120px);
+    transition: all 1s ease-in-out;
+}
+
+.card:hover .card__img {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 30%;
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
+}
+
+.card__img img {
+    width: 250px;
+    transform: translateX(-120px) translateY(100px) rotate(-15deg);
+    transition: all 1s ease-in-out;
+}
+
+.card:hover .card__img img {
+    transform: translate(0) rotate(0);
+    transition: all 1s ease-in-out;
+}
+
+.card__content h3 {
+    transform: translateY(120px);
+    transition: all 1s ease-in-out;
+}
+
+.card:hover h3 {
+    transform: translateY(0);
+    transition: all .8s ease-in-out;
+}
+
+.card__content {
+    display: grid;
+    text-transform: capitalize;
+    gap: 16px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.card:hover .card__content {
+    display: grid;
+    text-transform: capitalize;
+    gap: 16px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.card__content-size,
+.card__content-color {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    transform: translateY(120px);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.card:hover .card__content-size,
+.card:hover .card__content-color {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 1s ease-in-out;
+}
+
+.card__content-size div:first-child,
+.card__content-color div:first-child {
+    text-transform: uppercase;
+}
+
+.card__content-size div:not(:first-child) {
+    display: grid;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 4px;
+    place-content: center;
+    background: white;
+    color: var(--tertiary);
+}
+.card__content-size div:not(:first-child):hover {
+    cursor: pointer;
+    background-color: orange;
+}
+
+.card__content-color div:not(:first-child) {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50px;
+    box-shadow: 1px 2px 4px rgba(26, 26, 26, 0.589);
+}
+
+.card__content-color div:nth-child(2) {
+    background: #00cf00;
+}
+.card__content-color div:nth-child(3) {
+    background: rgb(18, 61, 255);
+}
+.card__content-color div:nth-child(4) {
+    background: rgb(255, 47, 47);
+}
+
+.card button {
+    padding: .5rem;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    width: fit-content;
+    border-radius: 4px;
+    margin: auto;
+    cursor: pointer;
+    background-color: var(--secondary);
+    color: var(--tertiary);
+    box-shadow: 4px 6px 14px rgb(48, 48, 48);
+    
+    transform: translateY(120px);
+    opacity: 0;
+    transition: all .8s ease-in-out;
+    
+}
+
+.card:hover button {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 1.2s ease-in-out;
+}

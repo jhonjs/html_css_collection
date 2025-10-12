@@ -1,0 +1,72 @@
+:root {
+    --point-size: 12px;
+}
+
+html {
+    height: 100dvh;
+    overflow: hidden;
+}
+body {
+    height: 100%;
+    background-color: rgb(22, 21, 21);
+}
+
+main {
+    height: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    place-items: end center;
+    gap: .2rem;
+}
+
+.point {
+    width: var(--point-size);
+    height: var(--point-size);
+    border-radius: 50%;
+    box-shadow: 1px 2px 4px 2px rgb(141, 216, 245);
+
+}
+
+.point.yellow {
+    background: linear-gradient(15deg, rgb(245, 245, 0) 5%, rgb(221, 221, 28) 100%);
+    animation: stars 4s ease infinite, moveUp 4.5s linear infinite;
+}
+.point.white {
+    background-color: rgb(255, 255, 248);
+    animation: stars 4s ease infinite, moveUp 2s linear infinite;
+}
+
+.point.yellow.r2,
+.point.white.r2 {
+    animation-name: moveUp;
+    animation-duration: 5s;
+}
+
+.point.yellow.r3,
+.point.white.r3 {
+    animation-name: moveUp;
+    animation-duration: 4s;
+}
+
+@keyframes stars {
+    100% {
+        width: var(--point-size);
+        height: var(--point-size);
+    }
+    50% {
+        opacity: .5;
+    }
+    80% {
+        width: 0;
+        height: 0;
+    }
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(0); 
+    }
+    to {
+        transform: translateY(-100dvh);
+    }
+}

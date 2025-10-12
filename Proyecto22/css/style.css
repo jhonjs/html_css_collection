@@ -1,0 +1,148 @@
+* {  
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100dvh;
+  overflow: hidden;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  background: linear-gradient(0deg, rgb(32, 8, 60) 20%, transparent);
+}
+
+.card {
+  font-size: 14px;
+  width: 300px;
+  height: 460px;
+  overflow: hidden;
+  border-radius: 14px;
+  position: relative;
+  cursor: pointer;
+
+  box-shadow: 0 0 18px rgb(32, 8, 60);
+
+  & .imgBx {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: 80%;
+      object-fit: fill;
+    }
+  }
+
+  .details {
+    position:absolute;
+    top: 60%;
+    background: linear-gradient(to top, black 90%, transparent);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    gap: .5rem;
+    align-content: start;
+    z-index: 1;
+      transition: all .5s ease-in-out;
+
+
+    & .imgContent {
+      width: 200px;
+      color: white;
+      display: grid;
+      padding: 0 1.5rem;
+
+      gap: .5rem;
+      & img {
+        width: 100%;
+      }
+
+      & p {
+        margin: 0;
+      }
+    }
+
+    & .rating {
+      display: flex;
+      gap: .5rem;
+      color: white;
+      padding: 0 1.5rem;
+      & .fa-star {
+        color: yellow;
+      }
+    }
+
+    & .tags {
+      display: flex;
+      gap: .5rem;
+      color: white;
+      padding: 0 1.5rem;
+
+      & div {
+        border-radius: 4px;
+        padding: 4px 8px;
+      
+        &:nth-child(1) {
+          background: rgb(114, 49, 243);
+        }
+        &:nth-child(2) {
+          background: rgb(242, 7, 132);
+        }
+      }
+    }
+
+    & .info {
+      width: 100%;
+
+      & p {
+        margin: 14px 1.5rem;
+        text-wrap: wrap;
+      }
+    }
+
+    & .cast h4 {
+      font-size: 1rem;
+      margin: 0 0 5px 0;
+      padding: 0 1.5rem;
+    }
+
+    & .cast ul {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0 1.5rem;
+
+      & li {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        overflow: hidden;
+        outline: 2px solid white;
+
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    & .imgBx { 
+      filter: blur(4px);
+    }
+
+    & .details {
+      transition: all .5s ease-in-out;
+      top: 15%;
+      color: white;
+    } 
+  }
+}
