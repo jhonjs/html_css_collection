@@ -10,15 +10,18 @@
     <main></main>
     <script>
         const container = document.querySelector('main')
-        const starsHTML = Array.from({ length: 32 }).map((_, i) => {
+
+        for(let i = 0; i < 50; i++) {
+            const dot = document.createElement('div')
             const _color = i % 2 === 0 ? 'white' : 'yellow'
-            let sequence = ''
-            if (i % 2 === 0) sequence = 'r2'
-            if(i % 4 === 0) sequence = 'r3'
-            return `<div class="point ${_color} ${sequence}"></div>`
-        }).join('')
-        
-        container.innerHTML = starsHTML
+            dot.style.left = `${Math.random() * 100}%`
+            dot.style.bottom =  `${Math.random() * 100}%`
+            dot.classList.add('point')
+            dot.classList.add(_color)
+            dot.style.animationDelay = `${Math.random()}s`
+            
+            container.appendChild(dot)
+        }
 
     </script>
 </body>

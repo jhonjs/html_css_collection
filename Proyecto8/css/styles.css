@@ -12,6 +12,8 @@ body {
 }
 
 main {
+    position: relative;
+    width: 100%;
     height: 100%;
     display: grid;
     grid-auto-flow: column;
@@ -20,53 +22,34 @@ main {
 }
 
 .point {
+    position: absolute;
     width: var(--point-size);
     height: var(--point-size);
     border-radius: 50%;
-    box-shadow: 1px 2px 4px 2px rgb(141, 216, 245);
-
 }
 
 .point.yellow {
-    background: linear-gradient(15deg, rgb(245, 245, 0) 5%, rgb(221, 221, 28) 100%);
-    animation: stars 4s ease infinite, moveUp 4.5s linear infinite;
+    background: #FFC107;
+    animation: stars 2.5s infinite ease-in-out;
+    box-shadow: 0 0 0 10px #F0DB4F, 0 0 50px #ff2d75, 0 0 100px #F23B00;
 }
 .point.white {
     background-color: rgb(255, 255, 248);
-    animation: stars 4s ease infinite, moveUp 2s linear infinite;
+    animation: stars 2s infinite  ease-in-out;
+    box-shadow: 1px 2px 4px 2px rgb(141, 216, 245), 1px 4px 8px 4px rgb(141, 216, 245);
 }
 
-.point.yellow.r2,
-.point.white.r2 {
-    animation-name: moveUp;
-    animation-duration: 5s;
-}
-
-.point.yellow.r3,
-.point.white.r3 {
-    animation-name: moveUp;
-    animation-duration: 4s;
-}
 
 @keyframes stars {
+    0% {
+        opacity: .2;
+    } 
     100% {
-        width: var(--point-size);
-        height: var(--point-size);
+        transform: translateY(0) scale(0);
+        opacity: .5; 
     }
     50% {
-        opacity: .5;
-    }
-    80% {
-        width: 0;
-        height: 0;
-    }
-}
-
-@keyframes moveUp {
-    from {
-        transform: translateY(0); 
-    }
-    to {
-        transform: translateY(-100dvh);
+        transform: translateY(-15px) scale(1);
+        opacity: 1;
     }
 }
