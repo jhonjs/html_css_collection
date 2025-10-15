@@ -1,0 +1,59 @@
+body {
+    height: 100svh;
+    background-color: aqua;
+}
+.container {
+    display: grid;
+    height: 100%;
+    place-content: center;
+    grid-auto-flow: column;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.card h2 {
+    position: absolute;
+    font-size: 12px;
+    top: -50px;
+    display: none;
+    width: 5rem;
+    padding: 8px 1rem;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    text-align: center; 
+    
+    transition: all 0.1s ease-in;
+}
+
+.card h2::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px solid;
+    border-color: black transparent transparent transparent;
+}
+
+.card:hover > h2 {
+    display: block;
+    transform: translateY(-100%);
+}
+
+.container img {
+    width: 10rem;
+    height: 15rem;
+    transition: all 0.3s ease-in;
+}
+
+.container img:hover {
+    cursor: pointer;
+    filter: drop-shadow(-2px 8px 8px #000000);
+    transform: translateY(-10%);
+}
