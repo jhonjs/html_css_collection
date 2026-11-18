@@ -1,105 +1,279 @@
 :root {
-    --color-1: rgb(41, 147, 204);
-    --color-2: rgb(37, 71, 134);
-    --white: rgb(252, 252, 252);
+    --color-primary: #1e3a5f;
+    --color-accent: #3b82f6;
+    --color-accent-soft: #dbeafe;
+    --color-bg: #f8fafc;
+    --color-surface: #ffffff;
+    --color-text: #1f2937;
+    --color-muted: #6b7280;
+    --color-border: #e5e7eb;
+    --white: #ffffff;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(30, 58, 95, 0.08);
 }
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Noto sans-serif', sans-serif;
 }
 
 body {
-    padding: .5rem;
+    padding: 1rem;
     overflow: auto;
-    color: var(--color-2);
-    background: var(--white);
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
 }
 
 main {
     display: grid;
     grid: 1fr / 4fr 8fr;
-    
-    & .profile {
-        display:grid;
-        align-content: start;
-        gap: 2rem;
-        background:var(--color-1);
-        color: var(--white);
-        padding: 2rem 3rem;
-        margin: 1rem 1.5rem;
-
-        & .image {
-            justify-self: center;
-        }
-
-        & .resume, .skills {
-            display: grid;
-            gap: 12px;
-            line-height: 24px;
-        }
-
-        & .contact,
-        .contact-content {
-            display: grid;
-            gap: 1rem;
-
-            & a {
-                color: white;
-                text-decoration: none;
-            }
-        }
-
-        & .contact-content > div {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-
-            & i {
-                font-size: 1.5rem;
-                color: var(--white);
-            }
-        }
-    } 
-
-    & .support {
-        display: grid;
-        gap: 1.5rem;
-        align-content: start;
-        position: relative;
-        & .title {
-            color: var(--white);
-        }
-    }
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-h2 {
-    text-transform: capitalize;
+main .profile {
+    display: grid;
+    align-content: start;
+    gap: 1.75rem;
+    background: linear-gradient(160deg, var(--color-primary), var(--color-accent));
+    color: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
 }
 
-.experience, .education {
-    display:grid;
+main .profile::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+main .profile .image {
+    justify-self: center;
+    z-index: 1;
+}
+
+main .profile .resume,
+main .profile .skills {
+    display: grid;
+    gap: 10px;
+    line-height: 1.7;
+    z-index: 1;
+}
+
+main .profile .resume h3,
+main .profile .skills h3,
+main .profile .contact h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 6px;
+}
+
+main .profile .contact,
+main .profile .contact-content {
+    display: grid;
+    gap: 0.75rem;
+    z-index: 1;
+}
+
+main .profile .contact-content > div {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+main .profile .contact-content > div:hover {
+    transform: translateX(4px);
+}
+
+main .profile .contact-content i {
+    font-size: 1.25rem;
+    color: var(--white);
+    width: 24px;
+    text-align: center;
+}
+
+main .profile a {
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+main .profile a:hover {
+    border-color: var(--white);
+}
+
+main .profile .skills-content {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+main .support {
+    display: grid;
+    gap: 2rem;
+    align-content: start;
+    position: relative;
+}
+
+main .support .title {
+    color: var(--white);
+    padding: 2rem 3rem;
+    position: relative;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    box-shadow: var(--shadow);
+}
+
+main .support .title h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    line-height: 1.1;
+}
+
+main .support .title h2.study {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 6px;
+    opacity: 0.9;
+    text-transform: none;
+}
+
+main .support .title .bg-bar {
+    background-color: var(--color-primary);
+    height: 180px;
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 95vw;
+    z-index: -1;
+}
+
+.resume {
+    background: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: grid;
+    gap: 12px;
+    margin-bottom: 0.5rem;
+}
+
+.resume h2 {
+    color: var(--color-primary);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-accent-soft);
+}
+
+.resume p {
+    line-height: 1.75;
+    color: var(--color-text);
+}
+
+.experience,
+.education {
+    display: grid;
     gap: 16px;
+    background: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
 
-    & .details__item {
-        display: grid;
-        gap: 8px;
+.experience h2,
+.education h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-primary);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-accent-soft);
+}
 
-        & .details__item-data {
-            display: grid;
-            gap: 12px;
-            & ul {
-                display: grid;
-                gap: 12px;
-                padding: 0;
-                & li {
-                    margin-left: 2rem;
-                }
-            } 
-        }
+.experience .details__item,
+.education .details__item {
+    display: grid;
+    gap: 8px;
+    padding: 12px 14px;
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-bg);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    }
+.experience .details__item:hover,
+.education .details__item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.06);
+}
+
+.experience .details__item h3,
+.education .details__item h3 {
+    color: var(--color-primary);
+    font-size: 1.05rem;
+}
+
+.experience .details__item-data,
+.education .details__item-data {
+    display: grid;
+    gap: 10px;
+}
+
+.experience .details__item-data > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.experience .details__item-data ul {
+    display: grid;
+    gap: 8px;
+    padding: 0;
+    list-style: none;
+}
+
+.experience .details__item-data ul li {
+    position: relative;
+    padding-left: 1.25rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+.experience .details__item-data ul li::before {
+    content: "\f054";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--color-accent);
+    font-size: 0.7rem;
 }
 
 .image {
@@ -108,28 +282,139 @@ h2 {
     overflow: hidden;
     border-radius: 100%;
     outline: 5px solid var(--white);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
 
-    & img {
-        width: 100%;
-        transform: scale(1.1);
-    }
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: transform 0.4s ease;
+}
+
+.image:hover img {
+    transform: scale(1.12);
+}
+
+.about-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.about-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    word-break: break-all;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.about-links a:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
+}
+
+.about-links a i {
+    margin-right: 4px;
 }
 
 .tools {
     position: absolute;
-    top:0;
+    top: 0;
     right: 0;
     padding: 1rem;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
 
-    & select,
-    & button {
-        cursor: pointer;
-        padding: 8px 16px;
+.tools select,
+.tools button {
+    cursor: pointer;
+    padding: 8px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.tools select:hover,
+.tools button:hover {
+    background: var(--color-accent-soft);
+    border-color: var(--color-accent);
+}
+
+.tools button {
+    background: var(--color-accent);
+    color: var(--white);
+    border-color: var(--color-accent);
+}
+
+.tools button:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+    main {
+        grid: 1fr / 1fr;
+    }
+    main .support .title h1 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0.5rem;
+    }
+    main .profile {
+        padding: 1.5rem;
+    }
+    .tools {
+        position: static;
+        justify-content: flex-end;
+        margin-bottom: 0.5rem;
     }
 }
 
 @media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
     .tools {
         display: none;
+    }
+    body {
+        background: var(--white);
+    }
+    .profile {
+        background: var(--white) !important;
+        color: var(--color-text) !important;
+    }
+    .about-links a {
+        color: var(--color-primary) !important;
+        text-decoration: underline;
+        background: transparent !important;
+    }
+    main {
+        max-width: none;
+    }
+    .experience .details__item:hover,
+    .education .details__item:hover {
+        transform: none;
     }
 }

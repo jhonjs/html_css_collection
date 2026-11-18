@@ -26,7 +26,7 @@ i18next.init({
             translation: {
                 "aboutMe": {
                     "title": "About me",
-                    "content": "As a front-end web developer, I have experience in technologies such as JavaScript, React, and Node.js. I have been involved in web solutions for document process optimization and administration, utilizing agile methodologies such as Scrum and Kanban, and development methodologies such as clean architecture. My passion for clean code and innovation drives me to continue learning and adding value with every line I write."
+                    "content": "Full Stack software developer with 4 years of experience in the design, architecture, development, and implementation of web solutions from scratch. I have participated in building platforms for financial product management, including credit, contributions, and savings, contributing to the optimization and automation of operational, administrative, and financial processes.<br>I have experience in frontend development using JavaScript, React, Angular, and native Web Components, as well as backend development with Node.js, REST and GraphQL API integration, databases such as MySQL and PostgreSQL, and the application of clean architecture principles to build scalable, modular, and maintainable solutions.<br>I integrate generative AI tools, such as GPT Codex, into my workflow to optimize code generation and refactoring, unit tests, and E2E tests."
                 },
                 "current": "Current",
                 "contact": "Contact",
@@ -34,13 +34,20 @@ i18next.init({
                 "en": "English",
                 "es": "Spanish",
                 "experience": {
-                    "title": "expirence",
+                    "title": "Experience",
                     "knowark": {
                         "title": "Knowark",
                         "details": {
-                            "subtitle": "Front-end Web Developer",
+                            "subtitle": "Full Stack Web Developer",
                             "HTMLLayout": "HTML layout",
-                            "webAppDevelopment": "Web application development"
+                            "webAppDevelopment": "Web application development",
+                            "backendDevelopment": "Backend development",
+                            "relationalDatabases": "Relational databases (MySQL, PostgreSQL)",
+                            "restApiIntegration": "REST API integration",
+                            "graphqlIntegration": "GraphQL integration",
+                            "angularDevelopment": "Angular development",
+                            "aiAgents": "AI agent development",
+                            "aiSkills": "AI support skills"
                         }
                     },
                     "unicomfacauca": {
@@ -86,7 +93,7 @@ i18next.init({
             translation: {
                 "aboutMe": {
                     "title": "Sobre mí",
-                    "content": "Como desarrollador web Frontend, cuento con experiencia en tecnologías como JavaScript, React y Node.js. He sido partícipe de soluciones web para la optimización de procesos documentales y administración, haciendo uso de metodologías ágiles como Scrum o Kanban y metodologías de desarrollo como la arquitectura limpia. Mi pasión por el código limpio y la innovación me impulsa a seguir aprendiendo y aportando valor en cada línea que escribo."
+                    "content": "Desarrollador de software Full Stack con 4 años de experiencia en el diseño, arquitectura, desarrollo e implementación de soluciones web desde cero. He participado en la construcción de plataformas para la gestión de productos financieros, incluyendo créditos, aportes y ahorros, contribuyendo a la optimización y automatización de procesos operativos, administrativos y financieros.<br>Cuento con experiencia en desarrollo frontend utilizando JavaScript, React, Angular y Web Components nativos, así como en desarrollo backend con Node.js, integración de API REST y GraphQL, bases de datos como MySQL y PostgreSQL, y aplicación de principios de arquitectura limpia para construir soluciones escalables, modulares y mantenibles.<br>Integro herramientas de inteligencia artificial generativa, como GPT Codex en mi flujo de trabajo para optimizar la generación y refactorización de código, test unitarios y test E2E."
                 },
                 "contact": "Contacto",
                 "current": "Actual",
@@ -98,9 +105,16 @@ i18next.init({
                     "knowark": {
                         "title": "Knowark",
                         "details": {
-                            "subtitle": "Desarrollador web Front-end",
+                            "subtitle": "Desarrollador Web Full Stack",
                             "HTMLLayout": "Maquetación HTML",
-                            "webAppDevelopment": "Desarrollo de aplicaciones web"
+                            "webAppDevelopment": "Desarrollo de aplicaciones web",
+                            "backendDevelopment": "Desarrollo backend",
+                            "relationalDatabases": "Bases de datos relacionales (MySQL, PostgreSQL)",
+                            "restApiIntegration": "Integración de APIs REST",
+                            "graphqlIntegration": "Integración GraphQL",
+                            "angularDevelopment": "Desarrollo con Angular",
+                            "aiAgents": "Desarrollo con agentes de IA",
+                            "aiSkills": "Skills de apoyo con IA"
                         }
                     },
                     "unicomfacauca": {
@@ -148,5 +162,9 @@ i18next.init({
 generateLang();
 
 selectAll('[data-i18n]').forEach(item => {
-    item.textContent = i18next.t(item.dataset.i18n)
+    if (item.dataset.i18n === 'aboutMe.content') {
+        item.innerHTML = i18next.t(item.dataset.i18n)
+    } else {
+        item.textContent = i18next.t(item.dataset.i18n)
+    }
 })
